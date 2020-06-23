@@ -8,4 +8,5 @@ router.get("/student/:id", StudentController.getStudent);
 
 router.delete("/student/:id", StudentController.deleteStudent);
 
+router.put("/student", StudentController.editStudent);
 module.exports = router;

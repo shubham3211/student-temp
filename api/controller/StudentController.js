@@ -43,4 +43,14 @@ const deleteStudent = async (req, res) => {
   }
 };
 
-module.exports = { getStudent, createStudent, deleteStudent };
+const editStudent = async (req, res) => {
+  try {
+    const { studentId, ...studentData } = req.body;
+    await Student.findByIdAndUpdate(studentId, studentData);
+    return res.send({ done: true, message: "Student Updated" });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+module.exports = { getStudent, createStudent, deleteStudent, editStudent };
